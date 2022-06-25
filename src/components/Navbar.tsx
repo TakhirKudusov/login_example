@@ -12,8 +12,7 @@ export default function Navbar() {
         
         
         <button onClick={() => {
-            localStorage.removeItem('isLoggedIn')
-            localStorage.setItem('isLoggedIn', 'false')
+            localStorage.setItem('isLoggedIn', JSON.stringify(false))
             history('/login')
         }}>Log out</button>
     </div>

@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "../hook"
 import React, { useEffect } from "react"
-import { fetchPosts } from "../store/postsSlice" 
+import { fetchPosts, clearPosts } from "../store/postsSlice" 
 
 
 export default function News() {
@@ -10,6 +10,10 @@ export default function News() {
 
     useEffect(() => {
         dispatch(fetchPosts())
+
+        return () => {
+            dispatch(clearPosts())
+        }
     }, [])
     
     return (<div>
